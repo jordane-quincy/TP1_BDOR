@@ -28,7 +28,7 @@ create type Evenement_Type as object (
   Nom_E varchar2(20),
   Date_E Date,
   Lieu varchar2(20),
-  Public varchar2(20),
+  Public_Cible varchar2(20),
   Intervenants Intervenant_REF_TI_Type
 );
 /
