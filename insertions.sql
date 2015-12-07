@@ -77,3 +77,20 @@ INSERT INTO TABLE (select e.Evenements from Enseignant e where e.num_ens=3)
   from Evenement e
   where e.num_e=3
 );
+
+
+INSERT INTO Evenement values (
+	4, 'Evenement 4', sysdate - 44 , 'Lieu 4', 'Public 4', Intervenant_REF_TI_TYPE()
+);
+INSERT INTO TABLE (select e.Intervenants from Evenement e where e.num_e=4)
+(
+  select 'Filiere Evenement 4', ref(e), null
+  from Enseignant e
+  where e.num_ens=3
+);
+INSERT INTO TABLE (select e.Evenements from Enseignant e where e.num_ens=3)
+(
+  select ref(e)
+  from Evenement e
+  where e.num_e=4
+);
