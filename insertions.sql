@@ -57,3 +57,23 @@ INSERT INTO TABLE (select e.Intervenants from Evenement e where e.num_e=3)
   from Enseignant e, Professionnel p
   where e.num_ens=3 and p.num_p=3
 );
+
+
+INSERT INTO TABLE (select e.Evenements from Enseignant e where e.num_ens=1)
+(
+  select ref(e)
+  from Evenement e
+  where e.num_e=1
+);
+INSERT INTO TABLE (select e.Evenements from Enseignant e where e.num_ens=2)
+(
+  select ref(e)
+  from Evenement e
+  where e.num_e=2
+);
+INSERT INTO TABLE (select e.Evenements from Enseignant e where e.num_ens=3)
+(
+  select ref(e)
+  from Evenement e
+  where e.num_e=3
+);
