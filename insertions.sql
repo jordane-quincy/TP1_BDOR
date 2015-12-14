@@ -5,26 +5,34 @@ INSERT INTO Enseignant values (2, 'nom Enseignant 2', 'adresse Enseignant 2', 'F
 INSERT INTO Enseignant values (3, 'nom Enseignant 3', 'adresse Enseignant 3', 'Filiere 3',  Evenement_REF_TI_TYPE() /* on va avoir un tableau de ref*/);
 
 
-INSERT INTO Professionnel 
+INSERT INTO Professionnel
 (
   select 1, 'nom Professionnel 1', 'prenom Professionnel 1', 'Entreprise 1', 'Domaine 1', ref(e)
   from Enseignant e
   where e.NUM_ENS=1
 );
 
-INSERT INTO Professionnel 
+INSERT INTO Professionnel
 (
-  select 2, 'nom Professionnel 2', 'prenom Professionnel 2', 'Entreprise 2', 'Domaine 2', ref(e)
+  select 2, 'nom Professionnel 2', 'prenom Professionnel 2', 'Entreprise 2', 'Domaine 1', ref(e)
   from Enseignant e
   where e.NUM_ENS=2
 );
 
-INSERT INTO Professionnel 
+INSERT INTO Professionnel
 (
   select 3, 'nom Professionnel 3', 'prenom Professionnel 3', 'Entreprise 3', 'Domaine 3', ref(e)
   from Enseignant e
   where e.NUM_ENS=3
 );
+
+INSERT INTO Professionnel
+(
+  select 4, 'Dupont', 'Jean', 'Entreprise 4', 'Domaine 1', ref(e)
+  from Enseignant e
+  where e.NUM_ENS=1
+);
+
 
 
 
