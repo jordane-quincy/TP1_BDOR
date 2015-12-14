@@ -41,9 +41,13 @@ INSERT INTO Evenement values (
 );
 INSERT INTO TABLE (select e.Intervenants from Evenement e where e.num_e=1)
 (
-  select 'Filiere Evenement 1', ref(e), ref(p)
+  (select 'Filiere Evenement 1', ref(e), ref(p)
   from Enseignant e, Professionnel p
-  where e.num_ens=1 and p.num_p=1
+  where e.num_ens=1 and p.num_p=1)
+  union
+  (select 'Filiere Evenement 1', ref(e), ref(p)
+  from Enseignant e, Professionnel p
+  where e.num_ens=2 and p.num_p=2)
 );
 
 INSERT INTO Evenement values (
