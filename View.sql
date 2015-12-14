@@ -40,7 +40,6 @@ create type Enseignant2_t as object (
   Filiere varchar2(50)
 );
 /
-create table Enseignant2Relat of Enseignant2_t(primary key (Num_Ens));
 
 create view Enseignant2View of Enseignant2_t
 with object oid(Num_Ens) as
@@ -67,3 +66,7 @@ with object oid(Num_P) as (
 --Requête pour tester (on récupère bien le nom de l'enseignant qui était rataché au pro)
 select p.Num_Ens.Nom_Ens
 from ProfessionnelView_Or p;
+
+insert into Enseignant2 values (2, 'Ens2', 'adre2', 'filiere 2');
+
+select p.Num_Ens.Nom_Ens from ProfessionnelView_Or p;
