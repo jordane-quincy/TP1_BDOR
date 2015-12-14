@@ -9,10 +9,9 @@ BEGIN
   RETURN domaineDuPro;
 END;
 END;
+/
 
-/*
 --test fonction membre
 select p.*, p.getDomaine()
 from PROFESSIONNEL p
-where p.nom_p='nom Professionnel 2'
-*/
+where p.nom_p='nom Professionnel 2';
