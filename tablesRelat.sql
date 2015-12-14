@@ -6,6 +6,8 @@ create table Enseignant2 (
   primary key (Num_Ens)
 );
 
+insert into Enseignant2 values (1, "Ens1", "adre1", "filiere 1");
+
 create table Professionnel2 (
   Num_P number,
   Nom_P varchar2(50),
@@ -16,3 +18,5 @@ create table Professionnel2 (
   primary key (Num_P),
   foreign key (Num_Ens) references Enseignant2(Num_Ens)
 );
+
+insert into Professionnel2 values (1, "NomPro1", "PrenomPro1", "Entre1", "Domaine1", 1);
