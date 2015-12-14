@@ -33,6 +33,13 @@ INSERT INTO Professionnel
   where e.NUM_ENS=1
 );
 
+INSERT INTO Professionnel
+(
+  select 5, 'nom Professionnel 5', 'prenom Professionnel 5', 'Entreprise 5', 'Domaine 5', ref(e)
+  from Enseignant e
+  where e.NUM_ENS=1
+);
+
 
 
 
@@ -45,7 +52,7 @@ INSERT INTO TABLE (select e.Intervenants from Evenement e where e.num_e=1)
   from Enseignant e, Professionnel p
   where e.num_ens=1 and p.num_p=1)
   union
-  (select 'Filiere Evenement 1', ref(e), ref(p)
+  (select 'Filiere Evenement 2', ref(e), ref(p)
   from Enseignant e, Professionnel p
   where e.num_ens=2 and p.num_p=2)
 );
@@ -55,13 +62,21 @@ INSERT INTO Evenement values (
 );
 INSERT INTO TABLE (select e.Intervenants from Evenement e where e.num_e=2)
 (
-  select 'Filiere Evenement 2', ref(e), ref(p)
+  (select 'Filiere Evenement 2', ref(e), ref(p)
   from Enseignant e, Professionnel p
-  where e.num_ens=2 and p.num_p=2
+  where e.num_ens=2 and p.num_p=2)
+  union
+  (select 'Filiere Evenement 4', ref(e), ref(p)
+  from Enseignant e, Professionnel p
+  where e.num_ens=3 and p.num_p=4)
+  union
+  (select 'Filiere Evenement 2', ref(e), ref(p)
+  from Enseignant e, Professionnel p
+  where e.num_ens=1 and p.num_p=1)
 );
 
 INSERT INTO Evenement values (
-	3, 'Evenement 3', sysdate - 14 , 'Lieu 3', 'Public 3', Intervenant_REF_TI_TYPE()
+	3, 'Evenement 3', sysdate - 14 , 'Lieu 3', 'Public 2', Intervenant_REF_TI_TYPE()
 );
 INSERT INTO TABLE (select e.Intervenants from Evenement e where e.num_e=3)
 (
